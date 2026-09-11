@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Meet Andrea | Oh, Hello.</title>
+
+  <meta
+    name="description"
+    content="Meet Andrea — the woman at the heart of Oh, Hello."
+  >
+
+  <style>
+    :root {
+      --cream: #f7f1e7;
+      --paper: #fffdf8;
+      --ink: #25211d;
+      --muted: #756d64;
+      --accent: #9d5c43;
+      --accent-dark: #71402f;
+      --sage: #9aa48f;
+      --line: #ddd3c6;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--cream);
+      color: var(--ink);
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.7;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .wrap {
+      width: min(1100px, 90%);
+      margin: 0 auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(247, 241, 231, 0.96);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(8px);
+    }
+
+    nav {
+      min-height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+    }
+
+    .brand {
+      text-decoration: none;
+      font-size: 1.45rem;
+      font-weight: bold;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 22px;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.86rem;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #4e4943;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+
+    .hero {
+      padding: 90px 0 100px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 65px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      margin-bottom: 18px;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.78rem;
+      font-weight: bold;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    h1 {
+      margin: 0 0 28px;
+      font-size: clamp(3.8rem, 8vw, 7rem);
+      font-weight: 400;
+      line-height: 0.95;
+      letter-spacing: -0.05em;
+    }
+
+    .lead {
+      margin: 0;
+      font-size: clamp(1.2rem, 2.4vw, 1.55rem);
+      line-height: 1.65;
+    }
+
+    .photo-placeholder {
+      min-height: 470px;
+      border-radius: 24px;
+      border: 1px solid var(--line);
+      background:
+        linear-gradient(
+          145deg,
+          rgba(255,255,255,.85),
+          rgba(154,164,143,.38)
+        );
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 35px;
+      text-align: center;
+      color: var(--muted);
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .photo-placeholder strong {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--accent-dark);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.45rem;
+      font-weight: 400;
+    }
+
+    section {
+      padding: 90px 0;
+    }
+
+    .white-section {
+      background: var(--paper);
+    }
+
+    .section-heading {
+      max-width: 760px;
+      margin-bottom: 45px;
+    }
+
+    .section-heading h2 {
+      margin: 0 0 18px;
+      font-size: clamp(2.5rem, 5vw, 4.2rem);
+      font-weight: 400;
+      line-height: 1.05;
+      letter-spacing: -0.035em;
+    }
+
+    .section-heading p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 1.1rem;
+    }
+
+    .story {
+      max-width: 820px;
+      font-size: 1.13rem;
+    }
+
+    .story p {
+      margin: 0 0 24px;
+    }
+
+    .quote {
+      margin: 45px 0;
+      padding: 35px 0 35px 35px;
+      border-left: 5px solid var(--accent);
+      font-size: clamp(1.5rem, 3vw, 2.25rem);
+      font-style: italic;
+      line-height: 1.4;
+    }
+
+    .photo-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .photo-grid .photo-placeholder {
+      min-height: 330px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 22px;
+    }
+
+    .card {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 32px;
+    }
+
+    .card h3 {
+      margin: 0 0 12px;
+      font-size: 1.55rem;
+      font-weight: 400;
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .hello-band {
+      background: var(--accent-dark);
+      color: white;
+      text-align: center;
+      padding: 80px 0;
+    }
+
+    .hello-band p {
+      margin: 0;
+      font-size: clamp(2.5rem, 7vw, 5.5rem);
+      font-style: italic;
+      line-height: 1;
+    }
+
+    .button {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 13px 22px;
+      border: 1px solid var(--accent-dark);
+      border-radius: 999px;
+      text-decoration: none;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.88rem;
+    }
+
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 42px 0 55px;
+      color: var(--muted);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.83rem;
+      text-align: center;
+    }
+
+    @media (max-width: 820px) {
+      nav {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 18px 0;
+      }
+
+      .hero-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .photo-grid,
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      .photo-placeholder {
+        min-height: 300px;
+      }
+
+      section {
+        padding: 65px 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="wrap">
+      <nav>
+
+        <a class="brand" href="index.html">Oh, Hello.</a>
+
+        <div class="nav-links">
+          <a href="meet-andrea.html">Meet Andrea</a>
+          <a href="index.html#story">Her Story</a>
+          <a href="index.html#care">The Care Gap</a>
+          <a href="index.html#accountability">Accountability</a>
+          <a href="index.html#journal">Journal</a>
+          <a href="index.html#help">How to Help</a>
+        </div>
+
+      </nav>
+    </div>
+  </header>
+
+
+  <main>
+
+    <section class="hero">
+      <div class="wrap hero-grid">
+
+        <div>
+
+          <div class="eyebrow">The woman behind the story</div>
+
+          <h1>Meet<br>Andrea.</h1>
+
+          <p class="lead">
+            Andrea is 57 years old. She is a sister, a daughter,
+            a member of a very large and unusual family,
+            and a woman whose life cannot be understood
+            by looking at a case number.
+          </p>
+
+          <p class="lead" style="margin-top:22px;">
+            She is generally happy. She enjoys familiar people,
+            familiar routines and the comfort of knowing that
+            the world around her makes sense.
+          </p>
+
+        </div>
+
+        <div class="photo-placeholder">
+          <div>
+            <strong>Andrea</strong>
+            A welcoming portrait will go here.
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <section class="white-section">
+      <div class="wrap">
+
+        <div class="section-heading">
+          <div class="eyebrow">Her beginning</div>
+
+          <h2>
+            She didn't begin as a case.
+            She began as a child.
+          </h2>
+        </div>
+
+        <div class="story">
+
+          <p>
+            Our parents opened our family to foster children through
+            the Nassau County Department of Social Services.
+            Over the years, approximately 35 children passed through
+            our home and became part of our family's story.
+          </p>
+
+          <p>
+            Andrea was one of those children.
+          </p>
+
+          <p>
+            She was born with significant developmental disabilities.
+            Our parents fostered her and eventually adopted her.
+            From that point forward, Andrea was not simply someone
+            receiving care in our home.
+          </p>
+
+          <p>
+            She was our sister.
+          </p>
+
+          <div class="quote">
+            “Oh, hello.”
+          </div>
+
+          <p>
+            Andrea lived with our parents throughout their lives.
+            They were the center of the world she understood:
+            the people who knew her routines, her needs,
+            her habits and the small rhythms that helped her feel safe.
+          </p>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <section>
+      <div class="wrap">
+
+        <div class="section-heading">
+          <div class="eyebrow">Andrea's world</div>
+
+          <h2>
+            A life is made of ordinary moments.
+          </h2>
+
+          <p>
+            These spaces will eventually hold photographs of Andrea's
+            everyday life — not photographs of a disability,
+            but photographs of a person.
+          </p>
+        </div>
+
+        <div class="photo-grid">
+
+          <div class="photo-placeholder">
+            <div>
+              <strong>Family</strong>
+              Andrea with people who matter to her.
+            </div>
+          </div>
+
+          <div class="photo-placeholder">
+            <div>
+              <strong>Everyday Life</strong>
+              Andrea doing something she enjoys.
+            </div>
+          </div>
+
+          <div class="photo-placeholder">
+            <div>
+              <strong>Then &amp; Now</strong>
+              A photograph from Andrea's earlier life.
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <section class="white-section">
+      <div class="wrap">
+
+        <div class="section-heading">
+          <div class="eyebrow">Understanding Andrea</div>
+
+          <h2>
+            Independence is not all or nothing.
+          </h2>
+
+          <p>
+            Andrea can participate in her own life.
+            She can communicate, make choices, enjoy people,
+            develop relationships and take part in familiar routines.
+            But many ordinary activities require another person
+            to guide, prompt, supervise or assist her.
+          </p>
+        </div>
+
+        <div class="cards">
+
+          <article class="card">
+            <h3>What familiarity provides</h3>
+
+            <p>
+              Andrea functions best when the people and routines around
+              her are consistent. Familiar caregivers learn how she
+              communicates, what she needs and when something is wrong.
+            </p>
+          </article>
+
+          <article class="card">
+            <h3>What support provides</h3>
+
+            <p>
+              Support is more than completing household tasks.
+              It includes observation, prompting, redirection,
+              reassurance, judgment and recognizing situations
+              Andrea may not recognize herself.
+            </p>
+          </article>
+
+          <article class="card">
+            <h3>What disruption can mean</h3>
+
+            <p>
+              Abrupt changes in caregivers or routine can affect
+              Andrea's behavior and her ability to manage ordinary
+              parts of her day.
+            </p>
+          </article>
+
+          <article class="card">
+            <h3>What dignity means</h3>
+
+            <p>
+              Andrea's limitations are real, but they are not her
+              identity. Appropriate care should make it possible
+              for her to live her life rather than merely process
+              her through a system.
+            </p>
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <section>
+      <div class="wrap">
+
+        <div class="section-heading">
+          <div class="eyebrow">Family</div>
+
+          <h2>
+            The people around Andrea matter.
+          </h2>
+        </div>
+
+        <div class="story">
+
+          <p>
+            After our father died in October 2020,
+            our mother died only 93 days later.
+            There had never been a long-term transition plan
+            for Andrea's care.
+          </p>
+
+          <p>
+            Andrea eventually returned to the New York home
+            where much of our family's story had begun.
+          </p>
+
+          <p>
+            Today, family remains an important part of her support.
+            But love from family cannot replace the professional,
+            reliable and sustainable care that Andrea needs.
+          </p>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <section class="hello-band">
+      <div class="wrap">
+        <p>“Oh, hello.”</p>
+      </div>
+    </section>
+
+
+    <section style="text-align:center;">
+      <div class="wrap">
+
+        <div class="section-heading"
+             style="margin-left:auto;margin-right:auto;">
+
+          <div class="eyebrow">Continue her story</div>
+
+          <h2>
+            Andrea is a person before she is paperwork.
+          </h2>
+
+          <p>
+            Next, learn why the care currently authorized for Andrea
+            does not match the reality of her daily needs.
+          </p>
+
+        </div>
+
+        <a class="button" href="index.html#care">
+          Understand the Care Gap
+        </a>
+
+      </div>
+    </section>
+
+  </main>
+
+
+  <footer>
+    <div class="wrap">
+      © 2026 Oh, Hello. &nbsp;•&nbsp;
+      Andrea's story, told with dignity, care and love.
+    </div>
+  </footer>
+
+</body>
+</html>
