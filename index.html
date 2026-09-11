@@ -4,102 +4,688 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Oh, Hello.</title>
+  <title>Oh, Hello. | Meet Andrea</title>
 
   <meta
     name="description"
-    content="Oh, Hello — Andrea's story, advocacy, and accountability project."
+    content="Oh, Hello is Andrea's story — a living record of family, care, dignity, advocacy, and the belief that a person should never be reduced to a case."
   >
 
   <style>
+    :root {
+      --cream: #f7f1e7;
+      --paper: #fffdf8;
+      --ink: #25211d;
+      --muted: #756d64;
+      --accent: #9d5c43;
+      --accent-dark: #71402f;
+      --sage: #9aa48f;
+      --line: #ddd3c6;
+    }
+
     * {
       box-sizing: border-box;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: #f6f2eb;
-      color: #27231f;
+      background: var(--cream);
+      color: var(--ink);
       font-family: Georgia, "Times New Roman", serif;
-    }
-
-    main {
-      width: min(900px, 88%);
-      text-align: center;
-      padding: 70px 20px;
-    }
-
-    .eyebrow {
-      margin-bottom: 28px;
-      font-family: Arial, Helvetica, sans-serif;
-      font-size: 0.8rem;
-      font-weight: 700;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: #786f66;
-    }
-
-    h1 {
-      margin: 0;
-      font-size: clamp(4rem, 11vw, 8rem);
-      font-weight: 400;
-      line-height: 0.95;
-      letter-spacing: -0.04em;
-    }
-
-    .meet {
-      margin: 35px 0 10px;
-      font-size: clamp(1.7rem, 4vw, 2.5rem);
-    }
-
-    .intro {
-      max-width: 650px;
-      margin: 25px auto 0;
-      font-size: clamp(1.1rem, 2.4vw, 1.4rem);
       line-height: 1.7;
     }
 
-    .motto {
-      margin: 42px auto 0;
-      font-size: clamp(1.4rem, 3vw, 2rem);
-      font-style: italic;
+    a {
+      color: inherit;
     }
 
-    .coming {
-      margin-top: 55px;
+    .wrap {
+      width: min(1120px, 90%);
+      margin: 0 auto;
+    }
+
+    /* NAVIGATION */
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(247, 241, 231, 0.96);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(8px);
+    }
+
+    nav {
+      min-height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+    }
+
+    .brand {
+      text-decoration: none;
+      font-size: 1.45rem;
+      font-weight: bold;
+      letter-spacing: -0.02em;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 22px;
       font-family: Arial, Helvetica, sans-serif;
-      font-size: 0.9rem;
-      letter-spacing: 0.08em;
-      color: #786f66;
+      font-size: 0.86rem;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #4e4943;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+
+    /* HERO */
+
+    .hero {
+      min-height: 82vh;
+      display: grid;
+      align-items: center;
+      padding: 80px 0;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 70px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      margin-bottom: 20px;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.78rem;
+      font-weight: bold;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    h1 {
+      margin: 0 0 25px;
+      font-size: clamp(4.5rem, 10vw, 8.5rem);
+      font-weight: 400;
+      line-height: 0.9;
+      letter-spacing: -0.055em;
+    }
+
+    .hero-lead {
+      max-width: 720px;
+      margin: 0;
+      font-size: clamp(1.25rem, 2.4vw, 1.7rem);
+      line-height: 1.6;
+    }
+
+    .hero-lead strong {
+      color: var(--accent-dark);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 38px;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 13px 22px;
+      border: 1px solid var(--accent-dark);
+      border-radius: 999px;
+      text-decoration: none;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.88rem;
+      transition: 0.2s ease;
+    }
+
+    .button.primary {
+      background: var(--accent-dark);
+      color: white;
+    }
+
+    .button:hover {
+      transform: translateY(-1px);
+    }
+
+    .hello-card {
+      min-height: 380px;
+      background:
+        radial-gradient(circle at 30% 25%, rgba(255,255,255,.7), transparent 35%),
+        linear-gradient(145deg, #c5b9aa, #8f9b88);
+      border-radius: 50% 50% 45% 45% / 48% 48% 52% 52%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 45px;
+      text-align: center;
+      box-shadow: 0 24px 60px rgba(60, 48, 37, 0.14);
+    }
+
+    .hello-card p {
+      margin: 0;
+      color: white;
+      font-size: clamp(2rem, 4vw, 3.4rem);
+      line-height: 1.15;
+      font-style: italic;
+      text-shadow: 0 2px 16px rgba(0,0,0,.12);
+    }
+
+    /* STATEMENT */
+
+    .statement-band {
+      background: var(--accent-dark);
+      color: white;
+      padding: 65px 0;
+      text-align: center;
+    }
+
+    .statement-band p {
+      max-width: 900px;
+      margin: 0 auto;
+      font-size: clamp(1.8rem, 4vw, 3.2rem);
+      line-height: 1.35;
+    }
+
+    /* SECTIONS */
+
+    section {
+      padding: 95px 0;
+    }
+
+    .section-heading {
+      max-width: 760px;
+      margin-bottom: 50px;
+    }
+
+    .section-heading h2 {
+      margin: 0 0 15px;
+      font-size: clamp(2.4rem, 5vw, 4rem);
+      font-weight: 400;
+      letter-spacing: -0.035em;
+      line-height: 1.05;
+    }
+
+    .section-heading p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 1.1rem;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .card {
+      min-height: 270px;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 30px;
+    }
+
+    .card-number {
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--accent);
+      font-size: 0.78rem;
+      font-weight: bold;
+      letter-spacing: 0.14em;
+    }
+
+    .card h3 {
+      margin: 18px 0 12px;
+      font-size: 1.55rem;
+      font-weight: 400;
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    /* CARE GAP */
+
+    .care-gap {
+      background: #ece4d9;
+    }
+
+    .care-grid {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 60px;
+      align-items: start;
+    }
+
+    .big-number {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: clamp(5rem, 13vw, 9rem);
+      font-weight: 800;
+      line-height: 0.85;
+      color: var(--accent-dark);
+    }
+
+    .big-number-label {
+      margin-top: 18px;
+      color: var(--muted);
+      font-size: 1rem;
+    }
+
+    .care-copy h2 {
+      margin-top: 0;
+      font-size: clamp(2.2rem, 4vw, 3.4rem);
+      font-weight: 400;
+      line-height: 1.1;
+    }
+
+    .care-copy p {
+      font-size: 1.1rem;
+    }
+
+    /* ACCOUNTABILITY */
+
+    .accountability-box {
+      background: var(--paper);
+      border-left: 6px solid var(--accent);
+      padding: 35px 40px;
+      max-width: 900px;
+    }
+
+    .accountability-box strong {
+      color: var(--accent-dark);
+    }
+
+    /* HELP */
+
+    .help {
+      text-align: center;
+    }
+
+    .help p {
+      max-width: 720px;
+      margin: 0 auto 35px;
+      color: var(--muted);
+      font-size: 1.1rem;
+    }
+
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 40px 0 55px;
+      color: var(--muted);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.83rem;
+      text-align: center;
+    }
+
+    @media (max-width: 820px) {
+      nav {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 18px 0;
+      }
+
+      .nav-links {
+        gap: 12px 18px;
+      }
+
+      .hero-grid,
+      .care-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-grid {
+        gap: 45px;
+      }
+
+      .hello-card {
+        min-height: 280px;
+      }
+
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        padding: 70px 0;
+      }
     }
   </style>
 </head>
 
 <body>
-  <main>
-    <div class="eyebrow">A story about Andrea</div>
 
-    <h1>Oh, Hello.</h1>
+  <header>
+    <div class="wrap">
+      <nav>
+        <a class="brand" href="#top">Oh, Hello.</a>
 
-    <div class="meet">Meet Andrea.</div>
-
-    <p class="intro">
-      A living story about family, care, dignity, advocacy,
-      and the life of a woman who deserves to be known as a person
-      before she is ever treated as a case.
-    </p>
-
-    <p class="motto">
-      A person is not a case.
-    </p>
-
-    <div class="coming">
-      Her story is coming soon.
+        <div class="nav-links">
+          <a href="#meet">Meet Andrea</a>
+          <a href="#story">Her Story</a>
+          <a href="#care">The Care Gap</a>
+          <a href="#accountability">Accountability</a>
+          <a href="#journal">Journal</a>
+          <a href="#help">How to Help</a>
+        </div>
+      </nav>
     </div>
+  </header>
+
+
+  <main id="top">
+
+    <section class="hero">
+      <div class="wrap hero-grid">
+
+        <div>
+          <div class="eyebrow">Meet Andrea</div>
+
+          <h1>Oh,<br>Hello.</h1>
+
+          <p class="hero-lead">
+            Andrea has spent her life surrounded by family, familiar faces,
+            routines, laughter, and people who know how to meet her where she is.
+            She lives with significant developmental disabilities and needs
+            substantial support to navigate everyday life safely.
+          </p>
+
+          <p class="hero-lead" style="margin-top:20px;">
+            But before any diagnosis, authorization, assessment, or insurance
+            decision, there is something much simpler:
+            <strong>Andrea is a person.</strong>
+          </p>
+
+          <div class="hero-actions">
+            <a class="button primary" href="#meet">Meet Andrea</a>
+            <a class="button" href="#care">Understand the Care Gap</a>
+          </div>
+        </div>
+
+        <div class="hello-card">
+          <p>“Oh, hello.”</p>
+        </div>
+
+      </div>
+    </section>
+
+
+    <section class="statement-band">
+      <div class="wrap">
+        <p>
+          My sister is a person.<br>
+          Not a case.
+        </p>
+      </div>
+    </section>
+
+
+    <section id="meet">
+      <div class="wrap">
+
+        <div class="section-heading">
+          <div class="eyebrow">Who she is</div>
+          <h2>Meet Andrea.</h2>
+
+          <p>
+            This site begins with Andrea herself — her personality,
+            her relationships, the things that make her happy, what she can do,
+            and the support she needs in order to live safely and with dignity.
+          </p>
+        </div>
+
+        <div class="cards">
+
+          <article class="card">
+            <div class="card-number">01</div>
+            <h3>Her Life</h3>
+            <p>
+              Andrea became part of our family as a child and was later adopted
+              by our parents. This is the story of the life she has lived,
+              the family who raised her, and the home she knows.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="card-number">02</div>
+            <h3>Her World</h3>
+            <p>
+              Familiar people, familiar routines, food, conversation and a
+              predictable environment matter enormously to Andrea.
+              Changes in that world can be very difficult for her.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="card-number">03</div>
+            <h3>Her Needs</h3>
+            <p>
+              Andrea requires assistance, supervision, prompting and redirection
+              with many ordinary parts of daily life. Being physically alone
+              does not make those needs disappear.
+            </p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+
+    <section id="story" style="background:#fffaf2;">
+      <div class="wrap">
+
+        <div class="section-heading">
+          <div class="eyebrow">Her history</div>
+          <h2>A lifetime before the paperwork.</h2>
+
+          <p>
+            Andrea's story did not begin with an insurance company.
+            It began with a family.
+          </p>
+        </div>
+
+        <div class="accountability-box">
+          <p>
+            Our parents fostered dozens of children over the years.
+            Andrea was one of them. She became their daughter and our sister,
+            and she lived with our parents throughout their lives.
+          </p>
+
+          <p>
+            After both of our parents died within a few months of one another,
+            there was no established long-term care plan for Andrea.
+            The responsibility for trying to build one fell to family.
+          </p>
+
+          <p>
+            This site will tell that history in full — not because Andrea's past
+            should define her, but because understanding where she came from
+            helps explain why the care she receives today matters so much.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+
+    <section id="care" class="care-gap">
+      <div class="wrap care-grid">
+
+        <div>
+          <div class="big-number">35</div>
+          <div class="big-number-label">
+            currently authorized home-care hours per week
+          </div>
+        </div>
+
+        <div class="care-copy">
+          <div class="eyebrow">The Care Gap</div>
+
+          <h2>Hours on paper are not the same as adequate care.</h2>
+
+          <p>
+            Andrea currently receives a limited number of authorized
+            home-care hours each week.
+          </p>
+
+          <p>
+            Outside those hours, many of the same needs remain:
+            meals, household safety, hygiene, judgment, supervision,
+            redirection, companionship and recognition of problems
+            that Andrea may not understand or report on her own.
+          </p>
+
+          <p>
+            This site will document what those uncovered hours actually
+            look like in real life.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+
+    <section id="accountability">
+      <div class="wrap">
+
+        <div class="section-heading">
+          <div class="eyebrow">The public record</div>
+          <h2>Accountability without speculation.</h2>
+
+          <p>
+            We do not need to guess anyone's motives.
+            We can document what was requested, what was required,
+            what was decided, what was answered, and what happened afterward.
+          </p>
+        </div>
+
+        <div class="accountability-box">
+
+          <p>
+            <strong>The principle is simple:</strong>
+          </p>
+
+          <p>
+            What did Andrea need?<br>
+            What did the system require?<br>
+            What did we provide?<br>
+            What decision was made?<br>
+            What was the consequence for Andrea?
+          </p>
+
+          <p>
+            Organizations and individuals discussed on this site will be
+            welcome to provide corrections, explanations or substantive
+            responses. Where appropriate, those responses will be included
+            alongside the record.
+          </p>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <section id="journal" style="background:#fffaf2;">
+      <div class="wrap">
+
+        <div class="section-heading">
+          <div class="eyebrow">The Journal</div>
+          <h2>Life happens between assessments.</h2>
+
+          <p>
+            This journal will document Andrea's ordinary life:
+            funny moments, good days, difficult days, changes,
+            caregiving experiences, safety concerns, small victories
+            and the realities that never fit neatly inside a checkbox.
+          </p>
+        </div>
+
+        <div class="cards">
+
+          <article class="card">
+            <div class="card-number">LIFE</div>
+            <h3>Andrea being Andrea</h3>
+            <p>
+              Her words, her personality, family moments,
+              photographs and pieces of everyday life.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="card-number">CARE</div>
+            <h3>What support really means</h3>
+            <p>
+              Real examples showing when prompting, redirection,
+              supervision or assistance becomes necessary.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="card-number">RECORD</div>
+            <h3>What happened next</h3>
+            <p>
+              Requests, appeals, provider changes, responses,
+              failures and, we hope, progress.
+            </p>
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <section id="help" class="help">
+      <div class="wrap">
+
+        <div class="eyebrow">Stand with Andrea</div>
+
+        <div class="section-heading" style="margin-left:auto;margin-right:auto;">
+          <h2>How you can help.</h2>
+        </div>
+
+        <p>
+          Oh, Hello is being built to connect Andrea with people who can help:
+          advocates, disability professionals, elected representatives,
+          journalists, caregivers, neighbors and people willing to listen.
+        </p>
+
+        <p>
+          Soon this section will provide specific ways to share Andrea's story,
+          advocate for appropriate services and help create a sustainable,
+          safe future for her.
+        </p>
+
+        <a class="button primary" href="#top">Oh, Hello.</a>
+
+      </div>
+    </section>
+
   </main>
+
+
+  <footer>
+    <div class="wrap">
+      © 2026 Oh, Hello. &nbsp;•&nbsp;
+      Andrea's story, told with dignity, care and love.
+    </div>
+  </footer>
+
 </body>
 </html>
