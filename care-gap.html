@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>The Care Gap | Oh, Hello.</title>
+
+  <meta
+    name="description"
+    content="Andrea currently receives 35 authorized hours of home care each week. This page explains why hours on paper do not equal adequate care."
+  >
+
+  <style>
+    :root {
+      --cream: #f7f1e7;
+      --paper: #fffdf8;
+      --ink: #25211d;
+      --muted: #756d64;
+      --accent: #9d5c43;
+      --accent-dark: #71402f;
+      --sage: #9aa48f;
+      --line: #ddd3c6;
+      --soft: #ece4d9;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--cream);
+      color: var(--ink);
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.7;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .wrap {
+      width: min(1100px, 90%);
+      margin: 0 auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(247, 241, 231, 0.96);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(8px);
+    }
+
+    nav {
+      min-height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+    }
+
+    .brand {
+      text-decoration: none;
+      font-size: 1.45rem;
+      font-weight: bold;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 22px;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.86rem;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #4e4943;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+
+    .hero {
+      padding: 95px 0 105px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 70px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      margin-bottom: 18px;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.78rem;
+      font-weight: bold;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    h1 {
+      margin: 0 0 26px;
+      font-size: clamp(3.8rem, 8vw, 7rem);
+      font-weight: 400;
+      line-height: 0.95;
+      letter-spacing: -0.05em;
+    }
+
+    .lead {
+      margin: 0;
+      font-size: clamp(1.2rem, 2.4vw, 1.55rem);
+      line-height: 1.65;
+    }
+
+    .hours-card {
+      background: var(--accent-dark);
+      color: white;
+      border-radius: 24px;
+      padding: 55px 45px;
+      box-shadow: 0 24px 60px rgba(60, 48, 37, 0.14);
+    }
+
+    .hours-number {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: clamp(6rem, 13vw, 10rem);
+      line-height: 0.85;
+      font-weight: 800;
+    }
+
+    .hours-label {
+      margin-top: 24px;
+      font-size: 1.15rem;
+      line-height: 1.5;
+    }
+
+    section {
+      padding: 90px 0;
+    }
+
+    .white-section {
+      background: var(--paper);
+    }
+
+    .soft-section {
+      background: var(--soft);
+    }
+
+    .section-heading {
+      max-width: 780px;
+      margin-bottom: 48px;
+    }
+
+    .section-heading h2 {
+      margin: 0 0 18px;
+      font-size: clamp(2.5rem, 5vw, 4.2rem);
+      font-weight: 400;
+      line-height: 1.05;
+      letter-spacing: -0.035em;
+    }
+
+    .section-heading p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 1.1rem;
+    }
+
+    .story {
+      max-width: 830px;
+      font-size: 1.13rem;
+    }
+
+    .story p {
+      margin: 0 0 24px;
+    }
+
+    .quote {
+      margin: 50px 0;
+      padding: 35px 0 35px 35px;
+      border-left: 5px solid var(--accent);
+      font-size: clamp(1.7rem, 3.5vw, 2.6rem);
+      font-style: italic;
+      line-height: 1.35;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 22px;
+    }
+
+    .card {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 32px;
+    }
+
+    .card h3 {
+      margin: 0 0 12px;
+      font-size: 1.55rem;
+      font-weight: 400;
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .fact-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .fact {
+      background: var(--paper);
+      border-top: 5px solid var(--accent);
+      padding: 30px;
+    }
+
+    .fact strong {
+      display: block;
+      margin-bottom: 10px;
+      font-size: 1.25rem;
+      font-weight: 400;
+    }
+
+    .fact p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .statement-band {
+      background: var(--accent-dark);
+      color: white;
+      padding: 75px 0;
+      text-align: center;
+    }
+
+    .statement-band p {
+      max-width: 900px;
+      margin: 0 auto;
+      font-size: clamp(2rem, 4.5vw, 3.5rem);
+      line-height: 1.3;
+    }
+
+    .respite-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: start;
+    }
+
+    .respite-number {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: clamp(4rem, 10vw, 7rem);
+      line-height: 0.9;
+      font-weight: 800;
+      color: var(--accent-dark);
+    }
+
+    .respite-label {
+      margin-top: 18px;
+      color: var(--muted);
+      font-size: 1rem;
+      max-width: 400px;
+    }
+
+    .request-box {
+      max-width: 900px;
+      background: var(--paper);
+      border-left: 6px solid var(--accent);
+      padding: 38px 42px;
+    }
+
+    .request-box h3 {
+      margin-top: 0;
+      font-size: 1.8rem;
+      font-weight: 400;
+    }
+
+    .request-box ul {
+      padding-left: 22px;
+      margin-bottom: 0;
+    }
+
+    .request-box li {
+      margin-bottom: 12px;
+    }
+
+    .button {
+      display: inline-block;
+      margin-top: 28px;
+      padding: 13px 22px;
+      border: 1px solid var(--accent-dark);
+      border-radius: 999px;
+      text-decoration: none;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.88rem;
+    }
+
+    .button.primary {
+      background: var(--accent-dark);
+      color: white;
+    }
+
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 42px 0 55px;
+      color: var(--muted);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.83rem;
+      text-align: center;
+    }
+
+    @media (max-width: 820px) {
+      nav {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 18px 0;
+      }
+
+      .hero-grid,
+      .respite-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .cards,
+      .fact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        padding: 65px 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="wrap">
+      <nav>
+
+        <a class="brand" href="index.html">Oh, Hello.</a>
+
+        <div class="nav-links">
+          <a href="meet-andrea.html">Meet Andrea</a>
+          <a href="index.html#story">Her Story</a>
+          <a href="care-gap.html">The Care Gap</a>
+          <a href="index.html#accountability">Accountability</a>
+          <a href="index.html#journal">Journal</a>
+          <a href="index.html#help">How to Help</a>
+        </div>
+
+      </nav>
+    </div>
+  </header>
+
+
+  <main>
+
+    <section class="hero">
+      <div class="wrap hero-grid">
+
+        <div>
+          <div class="eyebrow">The reality behind the authorization</div>
+
+          <h1>The<br>Care Gap.</h1>
+
+          <p class="lead">
+            Andrea currently receives 35 authorized hours of home care
+            each week.
+          </p>
+
+          <p class="lead" style="margin-top:20px;">
+            That number sounds meaningful until you understand what
+            Andrea needs during all of the other hours of her life.
+          </p>
+        </div>
+
+        <div class="hours-card">
+          <div class="hours-number">35</div>
+
+          <div class="hours-label">
+            authorized home-care hours per week
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <section class="statement-band">
+      <div class="wrap">
+        <p>
+          Hours on a schedule are not the same thing as adequate care.
+        </p>
+      </div>
+    </section>
+
+
+    <section class="white-section">
+      <div class="wrap">
+
+        <div class="section-heading">
+          <div class="eyebrow">What gets missed</div>
+
+          <h2>
+            Andrea does not stop needing help when the aide leaves.
+          </h2>
+
+          <p>
+            Much of Andrea's support is not a single task that can be
+            checked off a list. It is the ongoing presence of another
+            person who notices, prompts, redirects and responds.
+          </p>
+        </div>
+
+        <div class="cards">
+
+          <article class="card">
+            <h3>Meals and nutrition</h3>
+
+            <p>
+              Andrea cannot reliably manage meal preparation and food
+              choices without help. A prepared meal does not guarantee
+              that she will eat it or make an appropriate substitute.
+            </p>
+          </article>
+
+          <article class="card">
+            <h3>Household safety</h3>
+
+            <p>
+              Andrea may not recognize when something in the home is
+              wrong, may leave water running, and may fail to report
+              problems that require immediate attention.
+            </p>
+          </article>
+
+          <article class="card">
+            <h3>Personal care</h3>
+
+            <p>
+              Hygiene, clothing, continence needs and daily routines
+              can require prompting, monitoring and redirection.
+            </p>
+          </article>
+
+          <article class="card">
+            <h3>Judgment and supervision</h3>
+
+            <p>
+              The absence of a scheduled physical task does not mean
+              Andrea is suddenly able to recognize risk, make safe
+              decisions or respond appropriately when something happens.
+            </p>
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <section>
+      <div class="wrap">
+
+        <div class="section-heading">
+          <div class="eyebrow">The difference that matters</div>
+
+          <h2>
+            Task completion is not the same as supervision.
+          </h2>
+        </div>
+
+        <div class="story">
+
+          <p>
+            A care plan may describe bathing, cooking, cleaning,
+            dressing or other identifiable tasks.
+          </p>
+
+          <p>
+            Andrea's needs extend beyond those individual tasks.
+            She needs someone capable of observing what is happening
+            around her, recognizing when something is wrong and
+            helping her respond appropriately.
+          </p>
+
+          <div class="quote">
+            Presence is not the same as care.
+          </div>
+
+          <p>
+            A caregiver can be physically inside the house and still
+            fail to provide meaningful supervision, engagement,
+            redirection or support.
+          </p>
+
+          <p>
+            For Andrea, the quality and continuity of the relationship
+            matter too. Familiar caregivers learn her routines,
+            understand her behavior and are more likely to recognize
+            when something is changing.
+          </p>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <section class="soft-section">
+      <div class="wrap">
+
+        <div class="section-heading">
+          <div class="eyebrow">What the uncovered hours can mean</div>
+
+          <h2>
+            Everyday situations can become safety problems.
+          </h2>
+
+          <p>
+            These are examples of the kinds of issues Andrea's family
+            has observed when adequate supervision is not available.
+          </p>
+        </div>
+
+        <div class="fact-grid">
+
+          <div class="fact">
+            <strong>Food can be discarded.</strong>
+            <p>
+              A meal can be prepared for Andrea and later end up
+              uneaten or thrown away.
+            </p>
+          </div>
+
+          <div class="fact">
+            <strong>Problems may go unreported.</strong>
+            <p>
+              Andrea may not recognize that a household fixture,
+              appliance or other part of her environment needs attention.
+            </p>
+          </div>
+
+          <div class="fact">
+            <strong>Routine disruption matters.</strong>
+            <p>
+              Sudden changes in caregivers or familiar routines can
+              lead to behaviors that require additional guidance
+              and redirection.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <section class="white-section">
+      <div class="wrap">
+
+        <div class="section-heading">
+          <div class="eyebrow">Family is not a service plan</div>
+
+          <h2>
+            The gaps have been absorbed by family.
+          </h2>
+        </div>
+
+        <div class="story">
+
+          <p>
+            For years, the difference between the care Andrea receives
+            and the care Andrea actually needs has largely been absorbed
+            by family.
+          </p>
+
+          <p>
+            Her brother became the person filling many of those gaps.
+            After suffering a stroke, his ability to monitor,
+            supervise and physically manage Andrea's needs became
+            significantly limited.
+          </p>
+
+          <p>
+            His wife, Marina, works in Philadelphia and travels to
+            New York on weekends to be with the family and help.
+            Her support is meaningful, but it cannot replace a
+            sustainable professional care structure.
+          </p>
+
+          <div class="quote">
+            Love can support a care plan.<br>
+            Love cannot substitute for one.
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <section>
+      <div class="wrap respite-grid">
+
+        <div>
+          <div class="respite-number">4–5<br>years</div>
+
+          <div class="respite-label">
+            without a weekend away together for Andrea's brother
+            and sister-in-law
+          </div>
+        </div>
+
+        <div>
+          <div class="eyebrow">Respite is care, too</div>
+
+          <div class="section-heading" style="margin-bottom:0;">
+            <h2>
+              Caregivers cannot remain on duty forever.
+            </h2>
+
+            <p>
+              A sustainable care system must protect Andrea while also
+              allowing the family members supporting her to rest,
+              recover, work, maintain relationships and live ordinary
+              human lives.
+            </p>
+          </div>
+
+          <div class="story" style="margin-top:28px;">
+            <p>
+              Andrea's brother and Marina have not had a weekend away
+              together in approximately four to five years.
+            </p>
+
+            <p>
+              Respite is not a luxury. It is part of what makes
+              long-term caregiving sustainable.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <section class="soft-section">
+      <div class="wrap">
+
+        <div class="section-heading">
+          <div class="eyebrow">The central problem</div>
+
+          <h2>
+            The system sees authorized hours.
+            Andrea lives the hours in between.
+          </h2>
+        </div>
+
+        <div class="story">
+
+          <p>
+            When a decision is made about home care, the question should
+            not simply be whether a form has been completed or whether
+            a list of individual tasks fits inside an authorization.
+          </p>
+
+          <p>
+            The question should be whether the resulting plan allows
+            this particular person to live safely and with dignity.
+          </p>
+
+          <p>
+            Andrea's family believes her current level of authorized
+            care does not adequately reflect her actual functional
+            and supervision needs.
+          </p>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <section class="white-section">
+      <div class="wrap">
+
+        <div class="request-box">
+
+          <div class="eyebrow">What we are asking for</div>
+
+          <h3>
+            A care plan built around Andrea.
+          </h3>
+
+          <ul>
+            <li>
+              Enough professional home-care support to match
+              Andrea's real functional needs.
+            </li>
+
+            <li>
+              Recognition that supervision, prompting and redirection
+              are meaningful care needs.
+            </li>
+
+            <li>
+              Greater continuity and quality in the caregivers assigned
+              to her.
+            </li>
+
+            <li>
+              A sustainable respite structure for the family members
+              who have been filling the uncovered hours.
+            </li>
+
+            <li>
+              A process that evaluates Andrea as an individual,
+              not merely as a collection of checkboxes.
+            </li>
+          </ul>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <section style="text-align:center;">
+      <div class="wrap">
+
+        <div class="section-heading"
+             style="margin-left:auto;margin-right:auto;">
+
+          <div class="eyebrow">Next</div>
+
+          <h2>
+            How did we get here?
+          </h2>
+
+          <p>
+            The accountability record will document the requests,
+            requirements, decisions, delays and responses that have
+            shaped Andrea's care.
+          </p>
+
+        </div>
+
+        <a class="button primary" href="index.html#accountability">
+          Accountability
+        </a>
+
+      </div>
+    </section>
+
+  </main>
+
+
+  <footer>
+    <div class="wrap">
+      © 2026 Oh, Hello. &nbsp;•&nbsp;
+      Andrea's story, told with dignity, care and love.
+    </div>
+  </footer>
+
+</body>
+</html>
